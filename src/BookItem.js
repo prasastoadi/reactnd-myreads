@@ -1,13 +1,22 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class BookItem extends Component {
   
   render() {
     const { book } = this.props
+    let thumbnail
+    
+    if (!book.imageLinks) {
+      thumbnail = 'https://commons.wikimedia.org/wiki/File:No_cover.JPG'
+    } else {
+      thumbnail = book.imageLinks.thumbnail
+    }   
+    
     return (
         <div className="book">
           <div className="book-top">
-            <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})`}}></div>
+            <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${thumbnail})`}}></div>
             <div className="book-shelf-changer">
               <select value={book.shelf}>
                 <option value="none" disabled>Move to...</option>
