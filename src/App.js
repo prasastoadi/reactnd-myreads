@@ -6,10 +6,19 @@ import SearchBooks from './SearchBooks'
 
 class BooksApp extends Component {
   state = {
+    books: []
   }
-
+  
+  /*componentDidMount() {
+    BooksAPI.getAll()
+    .then((books) => {
+      this.setState({books: books})
+    })
+  }*/
+  
   render() {
-    return (
+    const { books } = this.state   
+    return (   
       <div className="app">
         <Route exact path='/search' render={() => (
           <SearchBooks />
