@@ -5,7 +5,7 @@ import BookItem from './BookItem'
 
 class BookList extends Component {
 
-  render() {
+  render() {    
     const { books } = this.props    
     return (
       <ol className="books-grid">
@@ -17,6 +17,10 @@ class BookList extends Component {
       </ol>
     )
   }
+}
+
+BookList.propTypes = {
+  books: PropTypes.array.isRequired
 }
 
 export default BookList

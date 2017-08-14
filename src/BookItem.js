@@ -34,4 +34,15 @@ class BookItem extends Component {
   }
 }
 
+BookItem.propTypes = {
+  book: PropTypes.shape({
+    imageLinks: PropTypes.shape({
+      thumbnail: PropTypes.string
+    }).isRequired,
+    shelf: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    authors: PropTypes.array.isRequired
+  })
+}
+
 export default BookItem
