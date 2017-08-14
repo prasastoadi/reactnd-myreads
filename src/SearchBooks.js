@@ -25,6 +25,11 @@ class SearchBooks extends Component {
       this.setState({ searchResult: books })
     })
   } 
+
+  onItemChange = (book, shelf) => {
+    BooksAPI.update(book, shelf)
+      .then(this.searchQuery(this.state.query))
+  }
   
   render() { 
     const { query, searchResult } = this.state 
@@ -33,7 +38,7 @@ class SearchBooks extends Component {
     if (searchResult === undefined || !searchResult.length){
       bookList = null
     } else {
-      bookList = <BookList books={searchResult}/>
+      bookList = <BookList books={searchResult} onItemChange={this.onItemChange}/>
     }
     
     return (

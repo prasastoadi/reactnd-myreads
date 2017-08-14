@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import * as BooksAPI from './BooksAPI'
 
 class BookItem extends Component {
-  
+
   render() {
-    const { book } = this.props
+    const { book, onItemChange } = this.props
     let thumbnail
-    
+
     if (!book.imageLinks) {
       thumbnail = 'https://commons.wikimedia.org/wiki/File:No_cover.JPG'
     } else {
@@ -18,8 +19,8 @@ class BookItem extends Component {
           <div className="book-top">
             <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${thumbnail})`}}></div>
             <div className="book-shelf-changer">
-              <select value={book.shelf}>
-                <option value="none" disabled>Move to...</option>
+              <select value={book.shelf} onChange={(event) => onItemChange(book, event.target.value)}>
+                <option disabled selected value>Move to...</option>
                 <option value="currentlyReading">Currently Reading</option>
                 <option value="wantToRead">Want to Read</option>
                 <option value="read">Read</option>

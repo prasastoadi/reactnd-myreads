@@ -6,12 +6,15 @@ import BookItem from './BookItem'
 class BookList extends Component {
 
   render() {    
-    const { books } = this.props    
+    const { books, onItemChange } = this.props    
     return (
       <ol className="books-grid">
         {books.map((book, index)=> (
           <li key={index}>
-            <BookItem book={book}/>
+            <BookItem 
+              book={book} 
+              onItemChange={onItemChange}
+            />
           </li>
         ))}
       </ol>

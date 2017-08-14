@@ -5,7 +5,7 @@ import BookList from './BookList'
 class BookShelf extends Component {
   
   render() {
-    const { books, shelf } = this.props
+    const { books, shelf, onItemChange } = this.props
     const shelfTitle = {'currentlyReading': 'Currently Reading',
                       'wantToRead': 'Want to Read',
                       'read': 'read'}
@@ -17,6 +17,7 @@ class BookShelf extends Component {
             books={ books.filter(book => (
               book.shelf == shelf
             ))}
+            onItemChange={onItemChange}
           />
         </div>
       </div>
