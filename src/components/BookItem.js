@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class BookItem extends Component {
 
   render() {
-    const { book, onItemChange } = this.props
-    var thumbnail
+    const { book, onItemChange } = this.props;
+    var thumbnail;
 
-    !book.imageLinks ? thumbnail = 'https://commons.wikimedia.org/wiki/File:No_cover.JPG' : thumbnail = book.imageLinks.thumbnail
+    !book.imageLinks ? thumbnail = 'https://commons.wikimedia.org/wiki/File:No_cover.JPG' : thumbnail = book.imageLinks.thumbnail;
     
     return (
         <div className="book">
@@ -40,6 +40,6 @@ BookItem.propTypes = {
     authors: PropTypes.array
   }),
   onItemChange: PropTypes.func.isRequired
-}
+};
 
-export default BookItem
+export default BookItem;

@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import BookItem from './BookItem'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import BookItem from './BookItem';
 
 class BookList extends Component {
 
   render() {    
-    const { books, onItemChange } = this.props    
+    const { books, onItemChange } = this.props;
     return (
       <ol className="books-grid">
         {books.map((book, index)=> (
@@ -24,6 +24,6 @@ class BookList extends Component {
 BookList.propTypes = {
   books: PropTypes.array.isRequired,
   onItemChange: PropTypes.func.isRequired
-}
+};
 
-export default BookList
+export default BookList;

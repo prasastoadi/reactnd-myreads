@@ -13,38 +13,38 @@ class BooksApp extends Component {
   }
   
   componentDidMount() {
-    this.getBooks()
+    this.getBooks();
   }
   
   createLookUpTable(books) {
       var table = books.reduce((hashTable, book) => {
-        hashTable[book.id] = book.shelf
-        return hashTable
+        hashTable[book.id] = book.shelf;
+        return hashTable;
       }, {})
-      this.setState({lookUpTable : table})
+      this.setState({lookUpTable : table});
   }
 
   updateLocalStorage(books){
-    this.createLookUpTable(books)
-    this.setState({books: books})
+    this.createLookUpTable(books);
+    this.setState({books: books});
   }
 
   getBooks() {
     BooksAPI.getAll()
     .then((books) => {
-      this.updateLocalStorage(books)
+      this.updateLocalStorage(books);
     })
   }
 
   onItemChange = (book, shelf) => {
     BooksAPI.update(book, shelf)
       .then(() => {
-      this.getBooks()})
+      this.getBooks();})
   }
 
   render() {
     
-    const { books, lookUpTable } = this.state
+    const { books, lookUpTable } = this.state;
     
     return (   
       <div className="app">
@@ -59,4 +59,4 @@ class BooksApp extends Component {
   }
 }
 
-export default BooksApp
+export default BooksApp;

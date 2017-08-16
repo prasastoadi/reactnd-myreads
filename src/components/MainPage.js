@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
-import BookShelf from './BookShelf'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import BookShelf from './BookShelf';
 
 class MainPage extends Component{
 
   render(){
-    const { books, onItemChange } = this.props  
+    const { books, onItemChange } = this.props;
     return(
       <div className="list-books">
         <div className="list-books-title">
@@ -41,6 +41,6 @@ class MainPage extends Component{
 MainPage.propTypes = {
   books: PropTypes.array.isRequired,
   onItemChange: PropTypes.func.isRequired
-}
+};
 
-export default MainPage
+export default MainPage;
