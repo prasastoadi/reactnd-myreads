@@ -4,28 +4,9 @@ import * as BooksAPI from './BooksAPI'
 import BookShelf from './BookShelf'
 
 class MainPage extends Component{
-  state = {
-    books: []
-  }
-  
-  componentDidMount() {
-    this.getBooks()
-  }
-  
-  getBooks() {
-    BooksAPI.getAll()
-    .then((books) => {
-      this.setState({books: books})
-    })
-  }
-
-  onItemChange = (book, shelf) => {
-    BooksAPI.update(book, shelf)
-      .then(this.getBooks())
-  }
 
   render(){
-    const { books } = this.state  
+    const { books, onItemChange } = this.props  
     return(
       <div className="list-books">
         <div className="list-books-title">
@@ -36,17 +17,17 @@ class MainPage extends Component{
             <BookShelf 
               books={books} 
               shelf={'currentlyReading'} 
-              onItemChange={this.onItemChange}
+              onItemChange={onItemChange}
             />
             <BookShelf 
               books={books} 
               shelf={'wantToRead'} 
-              onItemChange={this.onItemChange}
+              onItemChange={onItemChange}
             />
             <BookShelf 
               books={books} 
               shelf={'read'} 
-              onItemChange={this.onItemChange}/>
+              onItemChange={onItemChange}/>
           </div>
         </div>
         <div className="open-search">

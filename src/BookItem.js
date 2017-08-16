@@ -6,13 +6,12 @@ class BookItem extends Component {
 
   render() {
     const { book, onItemChange } = this.props
-    let thumbnail
+    let thumbnail, shelf, title, authors
 
-    if (!book.imageLinks) {
-      thumbnail = 'https://commons.wikimedia.org/wiki/File:No_cover.JPG'
-    } else {
-      thumbnail = book.imageLinks.thumbnail
-    }   
+    !book.imageLinks ? thumbnail = 'https://commons.wikimedia.org/wiki/File:No_cover.JPG' : thumbnail = book.imageLinks.thumbnail
+    !book.shelf ? shelf = 'none' : shelf = book.shelf
+    !book.title ? title = '' : title = book.title
+    !book.authors ? authors = '' : authors = book.authors
     
     return (
         <div className="book">
@@ -20,7 +19,7 @@ class BookItem extends Component {
             <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${thumbnail})`}}></div>
             <div className="book-shelf-changer">
               <select value={book.shelf} onChange={(event) => onItemChange(book, event.target.value)}>
-                <option disabled selected value>Move to...</option>
+                <option disabled>Move to...</option>
                 <option value="currentlyReading">Currently Reading</option>
                 <option value="wantToRead">Want to Read</option>
                 <option value="read">Read</option>
@@ -39,10 +38,10 @@ BookItem.propTypes = {
   book: PropTypes.shape({
     imageLinks: PropTypes.shape({
       thumbnail: PropTypes.string
-    }).isRequired,
-    shelf: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    authors: PropTypes.array.isRequired
+    }),
+    shelf: PropTypes.string,
+    title: PropTypes.string,
+    authors: PropTypes.array
   })
 }
 

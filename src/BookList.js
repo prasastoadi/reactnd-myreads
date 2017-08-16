@@ -10,7 +10,7 @@ class BookList extends Component {
     return (
       <ol className="books-grid">
         {books.map((book, index)=> (
-          <li key={index}>
+          <li key={book.id}>
             <BookItem 
               book={book} 
               onItemChange={onItemChange}
