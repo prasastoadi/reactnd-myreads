@@ -1,17 +1,13 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import * as BooksAPI from './BooksAPI'
 
 class BookItem extends Component {
 
   render() {
     const { book, onItemChange } = this.props
-    let thumbnail, shelf, title, authors
+    var thumbnail
 
     !book.imageLinks ? thumbnail = 'https://commons.wikimedia.org/wiki/File:No_cover.JPG' : thumbnail = book.imageLinks.thumbnail
-    !book.shelf ? shelf = 'none' : shelf = book.shelf
-    !book.title ? title = '' : title = book.title
-    !book.authors ? authors = '' : authors = book.authors
     
     return (
         <div className="book">

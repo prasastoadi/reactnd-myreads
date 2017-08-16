@@ -15,7 +15,7 @@ class BookShelf extends Component {
         <div className="bookshelf-books">
           <BookList 
             books={ books.filter(book => (
-              book.shelf == shelf
+              book.shelf === shelf
             ))}
             onItemChange={onItemChange}
           />
