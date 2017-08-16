@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import DebounceInput from 'react-debounce-input'
 import * as BooksAPI from './BooksAPI'
 import BookList from './BookList'
@@ -99,5 +100,11 @@ class SearchPage extends Component {
     )
   } 
 }
+
+SearchPage.propTypes = {
+  lookUpTable: PropTypes.object.isRequired,
+  onItemChange: PropTypes.func.isRequired
+}
+
 
 export default SearchPage

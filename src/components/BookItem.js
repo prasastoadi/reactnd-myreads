@@ -38,7 +38,8 @@ BookItem.propTypes = {
     shelf: PropTypes.string,
     title: PropTypes.string,
     authors: PropTypes.array
-  })
+  }),
+  onItemChange: PropTypes.func.isRequired
 }
 
 export default BookItem
