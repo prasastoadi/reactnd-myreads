@@ -4,7 +4,7 @@ import DebounceInput from 'react-debounce-input'
 import * as BooksAPI from './BooksAPI'
 import BookList from './BookList'
 
-class SearchBooks extends Component {
+class SearchPage extends Component {
   
   state = {
     query : '',
@@ -100,4 +100,4 @@ class SearchBooks extends Component {
   } 
 }
 
-export default SearchBooks
+export default SearchPage

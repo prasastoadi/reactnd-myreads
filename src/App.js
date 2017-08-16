@@ -3,7 +3,7 @@ import { Route } from "react-router-dom"
 import './App.css'
 import * as BooksAPI from './BooksAPI'
 import MainPage from './MainPage'
-import SearchBooks from './SearchBooks'
+import SearchPage from './SearchPage'
 
 class BooksApp extends Component {
   
@@ -52,7 +52,7 @@ class BooksApp extends Component {
           <MainPage books={books} onItemChange={this.onItemChange}/>
         )} />
         <Route exact path='/search' render={() => (
-          <SearchBooks lookUpTable={lookUpTable} onItemChange={this.onItemChange}/>
+          <SearchPage lookUpTable={lookUpTable} onItemChange={this.onItemChange}/>
         )} />
       </div>
     )
