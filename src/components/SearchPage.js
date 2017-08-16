@@ -87,7 +87,7 @@ class SearchPage extends Component {
               type="text"
               placeholder="Search by title or author"
               value={query}
-              debounceTimeout={500}
+              debounceTimeout={400}
               onChange={ event => this.handleQuery(event.target.value)}
             />
           </div>
